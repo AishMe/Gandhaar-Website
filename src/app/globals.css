@@ -2,11 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+    background-color: #e2e5e9;
+}
+
 /* ImageHoverEffect.css */
 
 .image-hover-container {
     display: flex;
-    overflow-x: auto;
+    /* overflow-x: auto; */
     width: 100vw; /* Set to the width of the viewport */
     height: 100vh; /* Set to the height of the viewport */
     scroll-snap-type: x proximity;
@@ -21,26 +25,58 @@
   
   .box-container {
     height: 100%; /* Fill the entire height of the column */
-    overflow-y: auto; /* Enable vertical scrolling within the column */
+    overflow-y: hidden; /* Enable vertical scrolling within the column */
   }
   
   .box {
-    height: 300px; /* Fixed height for each box */
-    margin: 10px;
+    height: 220px; /* Fixed height for each box */
+    margin: 10px 5px;
     background-color: transparent;
     transition: background-color 0.3s ease-in-out;
+    animation: scrollAnimation 20s linear infinite; /* Adjust the duration as needed */
   }
   
   /* Add different colors for each column */
-  .column-1 .box { background-color: #ff5733; }
-  .column-2 .box { background-color: #33ff57; }
-  .column-3 .box { background-color: #5733ff; }
-  .column-4 .box { background-color: #ff5733; }
-  .column-5 .box { background-color: #33ff57; }
-  .column-6 .box { background-color: #5733ff; }
+  .column-1 .box { background-color: #651228; }
+  .column-2 .box { background-color: #651228; }
+  .column-3 .box { background-color: #651228; }
+  .column-4 .box { background-color: #651228; }
+  .column-5 .box { background-color: #651228; }
+  .column-6 .box { background-color: #651228; }
   
   /* Hover effect on the boxes */
-  .box:hover {
-    background-color: #ffcc00; /* Change to your desired hover color */
+  /* .box:hover {
+    background-color: #ffcc00;
+  } */
+  
+  /* Animation for auto-scrolling */
+@keyframes scrollAnimation {
+  0% {
+    transform: translateY(0); /* Initial position */
+  }
+  100% {
+    transform: translateY(calc(-300px * 6 - 10px)); /* Move to the next set of boxes with a small overlap */
+  }
+}
+  
+  /* Alternate directions for alternate columns */
+  .column-2 .box {
+    animation-direction: reverse;
   }
   
+  .column-4 .box {
+    animation-direction: reverse;
+  }
+  
+  .column-6 .box {
+    animation-direction: reverse;
+  }
+  
+
+  .spotlight {
+    background: var(--circle);
+    transition: --circle 2s;
+    z-index: 2;
+    /* background-color: #4158D0; */
+    /* background-image: ; */
+}
