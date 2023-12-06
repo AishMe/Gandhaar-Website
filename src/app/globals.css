@@ -2,26 +2,45 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
+/* ImageHoverEffect.css */
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+.image-hover-container {
+    display: flex;
+    overflow-x: auto;
+    width: 100vw; /* Set to the width of the viewport */
+    height: 100vh; /* Set to the height of the viewport */
+    scroll-snap-type: x proximity;
   }
-}
-
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-}
+  
+  .column {
+    flex: 1; /* Each column takes equal space */
+    display: flex;
+    flex-direction: column;
+    scroll-snap-align: center;
+  }
+  
+  .box-container {
+    height: 100%; /* Fill the entire height of the column */
+    overflow-y: auto; /* Enable vertical scrolling within the column */
+  }
+  
+  .box {
+    height: 300px; /* Fixed height for each box */
+    margin: 10px;
+    background-color: transparent;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  /* Add different colors for each column */
+  .column-1 .box { background-color: #ff5733; }
+  .column-2 .box { background-color: #33ff57; }
+  .column-3 .box { background-color: #5733ff; }
+  .column-4 .box { background-color: #ff5733; }
+  .column-5 .box { background-color: #33ff57; }
+  .column-6 .box { background-color: #5733ff; }
+  
+  /* Hover effect on the boxes */
+  .box:hover {
+    background-color: #ffcc00; /* Change to your desired hover color */
+  }
+  
